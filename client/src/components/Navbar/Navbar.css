@@ -1,0 +1,495 @@
+.navbar-container{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+   padding: 0px 15px;
+   position: fixed;
+   top: 0;
+   z-index: 99;
+}
+.navbar-left{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.brand_name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    text-align: bottom;
+    font-family: 'Poppins';
+    cursor: pointer;
+}
+.brand_name>h3{
+    color:#212526;
+}
+.brand_name h3{
+    line-height: 15px;
+}
+.brand_name p{
+    font-size: 12px;
+}
+.navbar-logo-div{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.navbar-logo-div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.navbar-right{
+    flex: 1;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.desktop-notification-div{
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.desktop-notification-div>span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    font-weight: 700;
+    padding: 12px;
+    color: #fff;
+    background-color: #4B8DF0;
+     transition: 0.3s;
+     text-transform: uppercase;
+}
+.desktop-notification-div>span:hover{
+    cursor: pointer;
+    background-color: #2b538f;
+}
+
+
+.nav-icon{
+    color: gray;
+    cursor: pointer;
+}
+.user_login_name_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aqua; */
+}
+.user_login_name_div>p{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aquamarine; */
+}
+.user_login_name_div>p>span:first-child{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    font-size: 22px;
+   color:#5E17EB
+}
+.user_login_name_div>p>span:last-child{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+   
+}
+
+.user_profile_and_logout{
+     background: #FFFFFF;
+    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 15px;
+    top:60px;
+    padding: 15px 12px;
+    border-radius: 4px;
+    z-index: 99;
+}
+.user_profile_and_logout>span{
+    font-family: "Poppins";
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.user_profile_and_logout>span:first-child{
+    margin-bottom: 5px;
+}
+.user_profile_and_logout>span:nth-child(2){
+    margin-bottom: 5px;
+}
+/* .password_popup{
+     background-color: #fff;
+     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50% !important;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    z-index: 99;
+    margin-top: 200px;
+}
+.password_popup_close_btn{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+.password_popup_close_btn>span{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+    color:gray;
+     border-left:1px solid lightgray;
+     border-bottom:1px solid lightgray;
+}
+.password_popup_close_btn>span:hover{
+    background-color: lightgray;
+}
+.password_popup_input_div{
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 10px;
+   padding: 0px 12px;
+}
+.password_popup_input_div>label{
+    font-size: 15px;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+.password_popup_input_div>input{
+    outline: none;
+    border: none;
+    border: 0.5px solid gray;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding-left: 10px;
+}
+.password_popup_input_div>input[type="text"]{
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+.password_popup_input_div>input::placeholder{
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+.password_popup_input_div>input:hover{
+   border: 0.5px solid #4096ff;
+}
+.change_password_confirm_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.passWordChangeBtn{
+    width:100px !important;
+    height:30px;
+} */
+.password_popup_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.change_password_heading{
+    color:#675cff;
+    font-family: "Poppins",sans-serif;
+    margin-bottom: 15px;
+}
+.change_password_input_div{
+    width: 300px;
+    margin-bottom: 10px;
+}
+.change_password_input_div > input{
+    width: 100%;
+    height: 35px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding-left: 8px;
+     font-family: "Poppins",sans-serif;
+}
+.change_password_input_div > input[type="text"]{
+     font-family: "Poppins",sans-serif;
+}
+.change_password_input_div > input:hover{
+outline: none;
+ border: 0.5px solid #4096ff;
+ cursor: pointer;
+}
+.change_password_input_div > input:focus{
+   outline: none;
+  border: 0.5px solid #4096ff;
+}
+.change_password_confirm_btn{
+    margin-top: 20px;
+    text-align: center;
+}
+.passWordChangeBtn{
+    width:100px !important;
+    height:30px;
+} 
+
+/* ----------------------------------mobile nav list css------------------------------ */
+ul{
+    display: none;
+}
+ul>li{
+    list-style: none;
+    font-size: 13px;
+    font-weight: 500;
+   margin-bottom: 8px;
+}
+.logout_btn_for_mobile{
+     padding-left: 12px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+.logout_btn_for_mobile>span:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#212526;
+}
+.logout_btn_for_mobile>span:last-child{
+color:#212526;
+}
+
+ul>li a{
+    text-decoration: none;
+}
+.menu-div {
+  height: 70px;
+  font-size: 25px;
+  display: none;
+}
+.open-icon,
+.close-icon {
+  font-size: 28px;
+  z-index: 99;
+}
+.mob-nav-icon{
+    font-size: 20px;
+    margin-right: 10px;
+}
+/* ------------------------media query for mobile and tab------------------ */
+@media screen and (max-width:920px){
+    ul{
+        display: block;
+    }
+    .desktop-notification-div{
+        display: none;
+    }
+    .menu-div {
+    display: block;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+  .openMenu {
+    flex-direction: column;
+    width: 70%;
+    height: 90vh;
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px 20px 0px 20px;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    transition: all 0.5s ease;
+    padding-top: 35px;
+    /* background-color: rgb(222, 222, 255); */
+    z-index: 999;
+    background-color: #fff;
+  }
+  .openMenu li{
+     height: 40px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 8px;
+    border-radius: 4px;
+  }
+  .openMenu  li a{
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding:0px 10px ;
+    padding-bottom: 0px;
+    /* margin-bottom: 8px; */
+    border-radius: 4px;
+    color: #000;
+  }
+  .openMenu  li a>span:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .openMenu  li a>span:last-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .closeMenu {
+    right: -100%;
+    transition: all 0.7s ease;
+  } 
+  
+  
+}
+@media screen and (max-width:320px){
+     .navbar-logo-div{
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.navbar-logo-div img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+     .brand_name>h3{
+        width: fit-content;
+        font-size: 16px;
+    }
+     .openMenu li{
+    margin-bottom: 9px;
+     color: #5E17EB
+  }
+    .openMenu  li a{
+    font-size: 16px;
+     color: #5E17EB
+  }
+  .logout_btn_for_mobile>span:last-child{
+    font-size: 16px;
+  }
+  .mob-nav-icon{
+    font-size: 27px;
+  }
+   .change_password_input_div{
+    width: 200px;
+    /* padding: 0px 10px; */
+  }
+  .change_password_input_div > input{
+    width: 100%;
+    height:40px;
+    font-size: 15px;
+  }
+   
+}
+@media screen and (min-width:321px) and (max-width:430px){
+    .brand_name>p{
+        display: none;
+    }
+    .brand_name>h3{
+        width: fit-content;
+        font-size: 17px;
+        line-height: 18px;
+    }
+    .navbar-logo-div{
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.navbar-logo-div img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+    .mob-nav-icon{
+        font-size: 26px;
+    }
+    .openMenu li{
+    margin-bottom: 16px;
+     color: #5E17EB
+  }
+    .openMenu  li a{
+    font-size: 18px;
+     color: #5E17EB
+  }
+  .logout_btn_for_mobile>span:last-child{
+     font-size: 18px;
+  }
+  .change_password_input_div{
+    padding: 0px 10px;
+  }
+  .change_password_input_div > input{
+    height:40px;
+  }
+  
+.passWordChangeBtn{
+    width:110px !important;
+    height:35px;
+}
+}
+
+@media screen and (min-width:431px) and (max-width:600px){
+    .brand_name>p{
+        display: none;
+    }
+    .brand_name>h3{
+        width: fit-content;
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .mob-nav-icon{
+        font-size: 32px;
+    }
+    .openMenu li{
+    margin-bottom: 16px;
+     color: #5E17EB
+  }
+    .openMenu  li a{
+    font-size: 20px;
+     color: #5E17EB
+  }
+  .logout_btn_for_mobile>span:last-child{
+     font-size: 20px;
+  }
+   .change_password_input_div > input{
+    height:40px;
+    font-size: 16px;
+  }
+  
+.passWordChangeBtn{
+    width:120px !important;
+    height:38px;
+}
+}

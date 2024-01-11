@@ -1,0 +1,32 @@
+.checkout_text{
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    /* text-transform: capitalize; */
+    font-family: "Poppins";
+    font-weight: 500;
+    color: #323030;
+    line-height: 19px;
+    font-size: 14px;
+}
+.greenClass{
+    color:green;
+    animation: blink 0.25s ease-out infinite;
+}
+.warningclass{
+    color: red;
+    
+}
+
+@keyframes blink{
+    0%{scale: 0.3;}
+    100%{
+        scale: 0.9;
+    }
+}
+
+@media screen and (max-width:430px){
+    .checkout_text{
+        font-size: 12px;
+    }
+}

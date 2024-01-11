@@ -1,0 +1,404 @@
+.apply_leave_select_btn_container{
+    height: 45px;
+    background-color: rgb(236, 235, 235);
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+}
+.apply_leave_heading_container{
+    height:45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.apply_leave_heading{
+    font-size: 21px;
+    font-family: 'Poopins'sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color:#131313
+}
+.apply_leave_heading_container>button{
+    width: 60px;
+     height: 45px;
+     border: none;
+     outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     border-radius: 6px;
+     font-family: 'Poppins',sans-serif;
+     font-size: 26px;
+     color: aliceblue;
+     background-color: #666EE2 ;
+     cursor: pointer;
+     transition: 0.4s ease;
+     opacity: 0;
+}
+.apply_leave_select_btn_div{
+    display: flex;
+    gap:5px;
+}
+.apply_leave_select_btn_div>button{
+    width: 100px;
+    height: 45px;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     border-radius: 6px;
+     font-family: 'Poppins',sans-serif;
+     cursor: pointer;
+     font-size: 15px;
+     font-weight: 500;
+     transition: 0.3s ease-in-out;
+}
+.apply_leave_select_btn_div>button:hover{
+     background-color: #ffffff;
+}
+.leave_category_btn{
+    background-color: #ffffff;
+}
+.apply_leave_select_btn_div>button:nth-child(2)>span:first-child{
+    width: 8px;
+    height: 8px;
+    background-color:#e8ae0f;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+.apply_leave_select_btn_div>button:nth-child(3)>span:first-child{
+    width: 8px;
+    height: 8px;
+    background-color: #666EE2 ;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+.apply_leave_select_btn_div>button:nth-child(4)>span:first-child{
+    width: 8px;
+    height: 8px;
+    background-color: #E83845 ;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+.user_leave_count_in_btn{
+    width: 14px;
+    height: 14px;
+   background-color: lightgray;
+    font-size: 10px;
+    margin-left: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    color: #4651e3;
+    font-family: 'Poppins',sans-serif;
+}
+.add_leave_btn_div{
+    height: 45px;
+}
+.add_leave_btn_div>button{
+    width: 60px;
+     height: 45px;
+     border: none;
+     outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     border-radius: 6px;
+     font-family: 'Poppins',sans-serif;
+     font-size: 26px;
+     color: aliceblue;
+     background-color: #666EE2 ;
+     cursor: pointer;
+     transition: 0.4s ease;
+}
+.add_leave_btn_div>button:hover{
+     background-color: #4651e3 
+}
+.apply_leave_data_container{
+    height: calc(100vh - 70px - 16px - 45px - 45px - 20px);
+    margin-top: 20px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.apply_leave_data_container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.apply_leave_data_container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.apply_leave_heading_1{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+.apply_leave_data{
+    display: flex;
+    justify-content: space-between;
+     border: 1px solid lightgray; 
+     border-radius: 6px;
+     padding: 10px;
+     margin-bottom: 12px;
+}
+.apply_leave_child_div>p:first-child{
+   color:rgb(155, 153, 153);  
+}
+.apply_leave_child_div>h3{
+    color: #383838;
+}
+.apply_leave_child_div>p:last-child{
+  color:#e8ae0f;
+  text-transform: capitalize;
+}
+.client_medical_btn{
+    color: #666EE2 !important ; 
+}
+.apply_leave_child_div_2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;   
+}
+.apply_leave_child_div_2>span:first-child{
+    background-color: #FFEFC5;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+     color:#e8ae0f;
+     text-transform: capitalize;
+}
+.apply_leave_child_div_2>span:last-child{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(223, 221, 221);
+    color: rgb(90, 88, 88);
+    border-radius: 6px;
+    font-size: 21px;
+    cursor: pointer;
+}
+.no_data_found_in_leave{
+     height: 370px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+.no_data_found_in_leave>p{
+    font-size: 19px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    color: #000000;
+}
+/* ----------------------------user leave details popup css-------------------------- */
+.client_leave_details_container{
+    display: block;
+    width: 250px;
+    height: auto;
+}
+.client_user_leave_details_data{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 15px;
+}
+.client_user_leave_details_data>span{
+    width: 85%;
+    /* border:1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.client_user_leave_details_data>span>span{
+    /* border:1px solid green; */
+    width:50%;
+}
+.client_user_leave_details_data>span>span:first-child{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #675cff;
+}
+.client_user_leave_details_data>span>span:last-child{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: capitalize;
+    /* color:gray; */
+    color:#000000;
+}
+.client_await{
+   color:#bc9529 !important;
+}
+.client_approved{
+   /* color:#B5F5D1; */
+   color: rgb(23, 203, 23) !important;
+}
+.client_reject{
+  color:red !important;
+}
+/* ---------------------------------------------- */
+@media screen and (max-width:320px){
+      .apply_leave_data_container{
+    height: auto;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.apply_leave_data_container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.apply_leave_data_container {
+    min-height: 300px;
+    /* display: none; */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+    .apply_leave_heading_container>button{
+    width: 58px;
+     height: 38px;
+     border: none;
+     outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     border-radius: 6px;
+     font-family: 'Poppins',sans-serif;
+     font-size: 26px;
+     color: aliceblue;
+     background-color: #666EE2 ;
+     cursor: pointer;
+     transition: 0.4s ease;
+     opacity: 0;
+}
+    .apply_leave_select_btn_container{
+        /* border: 1px solid red; */
+        width: 100%;
+    }
+    .apply_leave_select_btn_div{
+        width: 100%;
+        justify-content: space-around;
+    }
+    .apply_leave_select_btn_div>button{
+        width: auto;
+        flex: 1;
+        font-size: 12px;
+    }
+    .apply_leave_select_btn_div>button:nth-child(2)>span:first-child{
+    width: 6px;
+    height: 6px;
+    display: none;
+}
+.apply_leave_select_btn_div>button:last-child>span:first-child{
+    width: 6px;
+    height: 6px;
+    display: none;
+}
+    .add_leave_btn_div>button{
+        display: none;
+    }
+    .apply_leave_heading_container{
+        margin: 12px 0px;
+    }
+    .apply_leave_heading_container>button{
+        opacity: 1;
+    }
+    .apply_leave_child_div>p:first-child {
+    font-size: 13px;
+}
+.apply_leave_child_div>h3 {
+    font-size: 14px;
+}
+.apply_leave_child_div>p:last-child {
+    font-size: 13px;
+}
+.apply_leave_child_div_2>span:first-child {
+    font-size: 11px;
+}
+.client_leave_details_container {   
+    width: 240px;
+    height: auto;
+}
+}
+
+@media screen and (min-width:321px) and (max-width:430px){
+    .apply_leave_data_container{
+    padding-bottom: 0px;
+}
+    .apply_leave_data_container{
+    height: auto;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.apply_leave_data_container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.apply_leave_data_container {
+    min-height: 300px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+    .apply_leave_heading_container>button{
+    width: 58px;
+     height: 38px;
+     border: none;
+     outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     border-radius: 6px;
+     font-family: 'Poppins',sans-serif;
+     font-size: 26px;
+     color: aliceblue;
+     background-color: #666EE2 ;
+     cursor: pointer;
+     transition: 0.4s ease;
+     opacity: 0;
+}
+    .apply_leave_select_btn_container{
+        width: 100%;
+    }
+    .apply_leave_select_btn_div{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .apply_leave_select_btn_div>button{
+        width: auto;
+        flex: 1;
+        font-size: 13px;
+    }
+    .add_leave_btn_div>button{
+        display: none;
+    }
+    .apply_leave_heading_container{
+        margin: 12px 0px;
+    }
+    .apply_leave_heading_container>button{
+        opacity: 1;
+    }
+    .client_leave_details_container{
+    width: 270px;
+    height: auto;
+    
+    }
+}
+@media screen and (max-width:920px){
+  .apply_leave_data_container{
+    height: auto;
+}
+}

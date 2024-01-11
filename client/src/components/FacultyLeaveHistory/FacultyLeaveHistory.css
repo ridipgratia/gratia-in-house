@@ -1,0 +1,114 @@
+.faculty_apply_leave_history_data_container{
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.4);
+border-radius: 8px;
+margin-top: 15px;
+padding-top: 8px;
+}
+.faculty_apply-leave-history-list-head{
+    display: flex;
+    justify-content: space-between;
+}
+.faculty_apply-leave-history-list-head>span{
+width: 130px;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 13px;
+line-height: 18px;
+color: #000000;
+text-align: center;
+padding: 6px 0px;
+}
+.faculty_apply_leave_history-list-data{
+     display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+.faculty_apply_leave_history-list-data>span{
+    width: 130px;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 21px;
+color: #000000;
+text-align: center;
+}
+.faculty_apply_leave_history_approved_box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #DADADA;
+    border-radius: 0px 0px 7px 7px;
+    padding: 13px;
+    margin-top: 20px;
+}
+.faculty_apply_leave_history_approved_box>p:first-child{
+background: #FFFFFF;
+border-radius: 4px;
+padding: 11px 10px;
+font-size: 14px;
+}
+.faculty_apply_leave_history_approved_box>p:last-child{ 
+background: #03A300;
+border-radius: 4px;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 16px;
+color: #FFFFFF;
+padding: 6px 12px;
+}
+
+
+/* ----------------------------------media query----------------------------- */
+@media screen and (max-width:320px){
+    .faculty_apply_leave_history_data_table{
+        display: flex;
+    }
+    .faculty_apply-leave-history-list-head{
+        width: 50%;
+   flex-direction: column;
+}   
+.faculty_apply-leave-history-list-head>span{
+    width: 100%;
+}
+.faculty_apply_leave_history-list-data{
+        width: 50%;
+    flex-direction: column;
+}
+.faculty_apply_leave_history_approved_box{
+    flex-direction: column;
+}
+.faculty_apply_leave_history_approved_box>p:first-child{
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+}
+
+/* ------------------------------------------------------------ */
+@media screen and (min-width:321px) and (max-width:430px){
+    .faculty_apply_leave_history_data_table{
+        display: flex;
+    }
+    .faculty_apply-leave-history-list-head{
+        width: 50%;
+   flex-direction: column;
+}   
+.faculty_apply-leave-history-list-head>span{
+    width: 100%;
+}
+.faculty_apply_leave_history-list-data{
+        width: 50%;
+    flex-direction: column;
+}
+.faculty_apply_leave_history_approved_box{
+    flex-direction: column;
+}
+.faculty_apply_leave_history_approved_box>p:first-child{
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+}

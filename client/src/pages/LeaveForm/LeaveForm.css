@@ -1,0 +1,459 @@
+
+.faculty_apply_leave_form_conatiner{
+    height: calc(100vh - 70px - 16px);
+    overflow-y: scroll;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    padding-bottom: 35px;
+    padding: 0px 6px;
+}
+.faculty_apply_leave_form_conatiner::-webkit-scrollbar {
+ display: none;
+  width: 4px;
+}
+
+.faculty_apply_leave_form_conatiner::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+}
+
+.faculty_apply_leave_form_conatiner::-webkit-scrollbar-thumb:hover {
+  /* background-color: #555; */
+}
+
+.faculty_apply_leave_form_conatiner::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+.casual_leave_toggle_btn{
+    margin-top: 15px;
+    margin-bottom: 13px;
+}
+.leave_deduction_amt{
+    margin: 10px 0px;
+}
+.leave_deduction_amt>p{
+    font-size: 13px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+}
+.casual_leave_toggle_btn>span{
+    margin-left: 15px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+}
+.faculty_apply_leave_form_heading{
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 19px;
+line-height: 16px;
+color: #000000;
+position: relative;
+margin-top: 25px;
+margin-bottom: 16px;
+}
+.faculty_apply_leave_form_heading::before{
+    content: "";
+    width: 70px;
+    height: 3px;
+    background-color: #5E17EB;
+    position: absolute;
+    bottom: -6px;
+    left: 15px;
+    border-radius: 10px;
+    /* right: 0px; */
+    /* transform: translateX(-50%,-50%); */
+    /* margin: 0 auto; */
+}
+.remaining_leave_show_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* gap: 10px; */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    padding: 6px;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  animation: fade-up 0.5s ;
+  /* border: 1px solid red; */
+}
+@keyframes fade-up{
+    0%{
+        opacity: 0;
+        transform: translateY(-40px) scale(0.9);
+    }
+    100%{
+          opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+.remaining_leave_show_div>p{
+    font-size: 14px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-align: center;
+}
+.arrow_for_rem_leave{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height:22px;  
+}
+.remaining_leave_show_div>span:last-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height:23px;
+    background-color: #5E17EB;
+    color:#fff;
+    border-radius: 50%;
+    font-size: 11px;
+}
+.faculty_apply_leave_form_div{
+   display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px 25px;
+  padding-top: 18px;
+
+}
+.faculty_apply_leave_form_div>div{
+    display: flex;
+    flex-direction: column;
+}
+.faculty_apply_leave_form_div>div>label{ 
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 16px;
+color: #000000;
+text-transform: uppercase;
+margin-bottom: 6px;
+}
+
+.date_picker{
+width: 100%;
+height:38px ;
+background: #FFFFFF;
+border: 0.3px solid lightgray;
+border-radius: 4px;
+padding: 0px 10px; 
+font-size: 14px !important;
+}
+.date_picker:hover{
+outline: none;
+ border: 0.5px solid #4096ff;
+}
+.date_picker:focus{
+   outline: none;
+  border: 0.5px solid #4096ff;
+}
+
+.faculty_apply_leave_textarea_div>textarea:focus{
+    outline: none;
+    border: 0.5px solid #4096ff;;
+}
+.faculty_apply_leave_textarea_div>textarea:hover{
+    outline: none;
+    border: 0.5px solid #4096ff;
+}
+.faculty_apply_leave_form_div>div:last-child>label>span{ 
+font-size: 12px;
+text-transform: capitalize;
+}
+.faculty_apply_leave_textarea_div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.faculty_apply_leave_textarea_div>label{
+   font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 16px;
+color: #000000;
+text-transform: uppercase;
+margin-bottom: 6px;
+}
+.faculty_apply_leave_textarea_div>textarea{
+    border: 0.5px solid lightgrey;
+    border-radius: 8px;
+    padding: 8px 10px;
+    resize: none;
+}
+.faculty_apply_leave_upload_document{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:25px;
+}
+.faculty_apply_leave_upload_document>div{
+    width: 340px;
+}
+.faculty_apply_leave_upload_document>div>.ewqTBN{
+    width: 100%;
+    border: 1.5px solid rgb(6,88,194) !important;
+    height: 70px;
+}
+.faculty_apply_leave_submit_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:32px;
+    /* margin-bottom: 60px; */
+}
+.faculty_apply_leave_submit_btn>button{
+background: #37B822;
+border-radius: 5px;
+border: none;
+width: 150px;
+height: 38px;
+cursor: pointer;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 16px;
+color: #FFFFFF;
+text-transform: uppercase;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+transition: 0.4s ease-in-out;
+margin-bottom: 25px;
+}
+.faculty_apply_leave_submit_btn>button:hover{
+background: #5de847;
+}
+/* .holiday-tooltip{
+    background-color: red;
+}
+.tooltip{
+    color:red
+} */
+
+
+
+/* ----------------------------------------media query--------------------- ----------------------- */
+@media screen and (max-width:320px){
+    .faculty_apply_leave_form_conatiner{
+    height:auto;
+    overflow-y: hidden;
+    margin-top: 8px;
+    margin-bottom: 0px;
+     padding: 0px 3px 20px 3px;
+}
+     .date_picker{
+        font-size: 14px !important;
+    }
+    .casual_leave_toggle_btn{
+    margin-top: 0px;
+    margin-bottom: 13px;
+}
+    .faculty_monthly_summery_heading{
+        text-align: center;
+    }
+    .faculty_apply_leave_form_heading::before{
+    content: "";
+    width: 70px;
+    height: 3px;
+    background-color: #5E17EB;
+    position: absolute;
+    bottom: -6px;
+    left: 0px;
+    border-radius: 10px;
+    right: 0px;
+    transform: translateX(-50%,-50%);
+    margin: 0 auto;
+}
+    .faculty_monthly_summery{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .faculty_leave_progress_bar_container{
+        flex-direction: column;
+        padding: 0px;
+    }
+    .faculty_leave_progress_bar_child_1{
+        width: 100%;
+    }
+    .faculty_leave_progress_bar_child_2{
+        width: 100%;
+        height: 180px;
+        margin-top: 20px;
+    }
+    .faculty_leave_balance_div>p:first-child{
+     font-size: 15px;
+}
+.faculty_leave_balance_div>p:last-child{
+    font-size: 15px;
+}
+.faculty_leave_applied_div>p:first-child{
+     font-size: 15px;
+}
+.faculty_leave_applied_div>p:last-child{
+    font-size: 15px;
+}
+.faculty_leave_left_div>p:first-child{
+     font-size: 15px;
+}
+.faculty_leave_left_div>p:last-child{
+    font-size: 15px;
+}
+    .faculty_apply_leave_form_heading{
+        text-align: center;
+        margin: 30px 0px 15px 0px;
+    }
+    .faculty_apply_leave_form_div{
+  grid-template-columns: 100%;
+  gap:0px;
+}
+.faculty_apply_leave_form_div>div{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.faculty_apply_leave_upload_document>div{
+    width: 100%;
+}
+.faculty_apply_leave_upload_document>div>.ewqTBN{
+    border: 1.5px solid rgb(6,88,194) !important;
+    height: 50px;
+}
+.faculty_apply_leave_upload_document>div{
+    width: 250px;
+}
+.DYXVr {
+    min-width: 250px !important;
+}
+}
+
+@media screen and (min-width:321px) and (max-width:430px){
+     .faculty_apply_leave_form_conatiner{
+    height:auto;
+    overflow-y: hidden;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    /* padding-bottom: 20px; */
+    padding: 0px 3px 20px 3px;
+}
+     .date_picker{
+        font-size: 14px !important;
+    }
+     .casual_leave_toggle_btn{
+    margin-top: 0px;
+    margin-bottom: 13px;
+}
+    .faculty_monthly_summery_heading{
+        text-align: center;
+    }
+    .faculty_apply_leave_form_heading::before{
+    content: "";
+    width: 70px;
+    height: 3px;
+    background-color: #5E17EB;
+    position: absolute;
+    bottom: -6px;
+    left: 0px;
+    border-radius: 10px;
+    right: 0px;
+    transform: translateX(-50%,-50%);
+    margin: 0 auto;
+}
+    .faculty_monthly_summery{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .faculty_leave_progress_bar_container{
+        flex-direction: column;
+        padding: 0px;
+    }
+    .faculty_leave_progress_bar_child_1{
+        width: 100%;
+    }
+    .faculty_leave_progress_bar_child_2{
+        width: 100%;
+        height: 180px;
+        margin-top: 20px;
+    }
+     .faculty_leave_balance_div>p:first-child{
+     font-size: 15px;
+}
+.faculty_leave_balance_div>p:last-child{
+    font-size: 15px;
+}
+.faculty_leave_applied_div>p:first-child{
+     font-size: 15px;
+}
+.faculty_leave_applied_div>p:last-child{
+    font-size: 15px;
+}
+.faculty_leave_left_div>p:first-child{
+     font-size: 15px;
+}
+.faculty_leave_left_div>p:last-child{
+    font-size: 15px;
+}
+    .faculty_apply_leave_form_heading{
+        text-align: center;
+        margin: 30px 0px 15px 0px;
+    }
+    .faculty_apply_leave_form_div{
+  grid-template-columns: 100%;
+  gap:0px;
+}
+.faculty_apply_leave_form_div>div{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.faculty_apply_leave_upload_document>div{
+    width: 100%;
+}
+}
+
+@media screen and (min-width:431px) and (max-width:768px){
+     .faculty_apply_leave_form_conatiner{
+    height:auto;
+    overflow-y: hidden;
+    margin-top: 8px;
+    margin-bottom: 0px;
+     padding: 0px 3px 20px 3px;
+}
+    .date_picker{
+        font-size: 14px !important;
+    }
+ .casual_leave_toggle_btn{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+    .faculty_apply_leave_form_heading::before{
+    content: "";
+    width: 70px;
+    height: 3px;
+    background-color: #5E17EB;
+    position: absolute;
+    bottom: -6px;
+    left: 15px;
+    border-radius: 10px;
+   
+}
+    .faculty_monthly_summery{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .faculty_leave_progress_bar_container{
+        flex-direction: column;
+        padding: 0px;
+    }
+    .faculty_leave_progress_bar_child_1{
+        width: 100%;
+    }
+    .faculty_leave_progress_bar_child_2{
+        width: 100%;
+        height: 180px;
+        margin-top: 20px;
+    }
+}

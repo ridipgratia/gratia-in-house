@@ -1,0 +1,52 @@
+.today_attendance_heading{
+    font-weight: 500;
+    color: gray;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.on_time_mesg{
+    background-color: #38b000;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 10px;
+    color: #fff;
+}
+.late_time_mesg{
+     background-color: #ef2d56;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 10px;
+    color: #fff;
+}
+.emp_present_search_box{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    padding-left: 10px;
+}
+.emp_present_search_box>input{
+    width: 300px;
+    height: 35px;
+    padding:3px 10px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border:0.5px solid rgb(170, 166, 166) ;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.emp_present_search_box>input:hover{
+    border: 0.5px solid #4096ff;
+}
+.emp_present_search_box>input:focus{
+    border: 0.5px solid #4096ff;
+}
+.emp_present_search_box>input[type="date"]{
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Poppins",sans-serif;
+     cursor: pointer;
+}

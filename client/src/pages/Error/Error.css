@@ -1,0 +1,45 @@
+.error_container{
+     width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+.error_div{
+    display: flex; 
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+}
+.error_heading{
+    color: #6a5acd;
+    font-Size: 200px; 
+   font-family: "Mono";
+}
+.error_text{
+    color: #121212;
+}
+
+@media screen and (max-width:320px){
+    .error_heading{
+    color: #6a5acd;
+    font-Size: 90px; 
+   font-family: "Mono";
+}
+.error_text{
+    font-size: 15px;
+    color: #121212;
+}
+}
+
+@media screen and (min-width:320px) and (max-width:430px){
+    .error_heading{
+    color: #6a5acd;
+    font-Size: 100px; 
+   font-family: "Mono";
+}
+.error_text{
+    font-size: 15px;
+    color: #121212;
+}
+}

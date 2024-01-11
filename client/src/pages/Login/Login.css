@@ -1,0 +1,372 @@
+.login-container {
+  width: 100%;
+  height:100vh;
+  /* overflow-y: hidden; */
+  display: flex;
+}
+.login-left-div,
+.login-right-div {
+  flex: 1;
+}
+.login-right-div-img-container{
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.login-left-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-left-div>form{
+ display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+.login-right-div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-position: center;
+}
+.logo-div {
+  width: 90px;
+}
+.logo-div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.login-heading {
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 48px;
+  color: #000000;
+}
+.forgot_pas_container{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+}
+.reset_password_message{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.reset_password_message>p{
+  width: 70%;
+  font-family: "Poppins",sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  padding: 7px;
+  text-align: justify;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #d1f3d1;
+}
+.login-input-div {
+  display: flex;
+  width: 360px;
+  height: 35px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top: 12px;
+}
+.login-input-div:hover{
+  border: 0.5px solid #4096ff;
+}
+.login-input-div span {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.login-input-div input {
+  width: 90%;
+  height: auto;
+  border: none;
+  outline: none;
+  padding-left: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+.login-input-div input[type="email"],input[type="text"],input[type="password"] {
+  font-size: 15px;
+  line-height: 21;
+  font-weight: 400;
+  color: #000;
+}
+.login-input-div input[type="date"]{
+  color:gray;
+}
+
+.get-otp-btn-div {
+  text-align: center;
+}
+.get-otp-btn {
+  width: 130px;
+  height:35px;
+  background: #3061f1;
+  border-radius: 4px;
+  border: none;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.login_data{
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 600;
+   font-family: 'Poppins', sans-serif;
+}
+.login_data>div>span:last-child{
+  color: red;
+}
+.forget_password_div{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+  /* border: 1px solid red; */
+}
+.forget_password_div>p{
+  font-family: "Poppins",sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: rgb(89, 88, 88);
+}
+.forget_password_div>p>span{
+  color: #5ea5bc;
+  margin-left: 5px;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+/* -----------------------------admin restricted width css------------------- */
+.admin_login_text_view{
+  width: 100%;
+  height: 100vh;
+  display: none;
+}
+.admin_login_text{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  padding: 0px 20px;
+}
+.admin_login_text>p{
+  font-family: "poppins",sans-serif;
+  color:#fff;
+  font-size: 25px;
+  text-align: center;
+}
+/* -------------------------------media query for mobile size----------------------------- */
+@media screen and (max-width:320px){
+   .login-container{
+    padding-top: 100px;
+  }
+  .logo-div {
+    width: 95px;
+    margin-bottom: 11px;
+  }
+  .login-left-div {
+    display: flex;
+    margin-top: 40px !important;
+    justify-content: flex-start;
+  }
+  .login-heading {
+    font-size: 20px;
+  }
+  .login-right-div {
+    display: none;
+  }
+  .login-input-div {
+    display: flex;
+    width: 260px;
+    height: 45px;
+    margin-bottom: 5px;
+  }
+  .input_form_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .login-input-div input[type="email"],input[type="text"],input[type="password"]{
+    font-size: 17px;
+  }
+  .passHideShowBtn{
+    font-size: 25px;
+    margin-right: 6px;
+  }
+
+  .resend-otp-div {
+    margin-top: 18px;
+  }
+  
+  .get-otp-btn {
+    width:150px;
+    height: 35px;
+    background: #3061f1;
+    font-weight: 600;
+    font-size: 16px;
+  }
+ .reset_password_message>p{
+  width: 90%;
+}
+}
+
+@media screen and (min-width: 321px) and (max-width:430px){
+  .login-container{
+    padding-top: 100px;
+  }
+  .logo-div {
+    width: 110px;
+    margin-bottom: 11px;
+  }
+  .login-left-div {
+    display: flex;
+    margin-top: 40px !important;
+    justify-content: flex-start;
+  }
+  .login-heading {
+    font-size: 23px;
+  }
+  .login-right-div {
+    display: none;
+  }
+  .login-input-div {
+    display: flex;
+    width: 320px;
+    height: 45px;
+    margin-bottom: 12px;
+  }
+  .input_form_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .login-input-div input[type="email"],input[type="text"],input[type="password"]{
+    font-size: 17px;
+  }
+  .passHideShowBtn{
+    font-size: 25px;
+    margin-right: 6px;
+  }
+
+  .resend-otp-div {
+    margin-top: 18px;
+  }
+  
+  .get-otp-btn {
+    width:170px;
+    height: 39px;
+    background: #3061f1;
+    font-weight: 600;
+    font-size: 16px;
+  }
+   .reset_password_message>p{
+  width: 90%;
+}
+}
+/* --------------------------media query for tab----------------------- */
+@media screen and (min-width: 431px) and (max-width: 600px) {
+  .login-container{
+    padding-top: 100px;
+  }
+  .logo-div {
+    width: 120px;
+    margin-bottom: 11px;
+  }
+  .login-left-div {
+    display: flex;
+    margin-top: 50px !important;
+    justify-content: flex-start;
+  }
+  .login-heading {
+    font-size: 28px;
+  }
+  .login-right-div {
+    display: none;
+  }
+  .login-input-div {
+    /* display: flex; */
+    width: 400px;
+    height: 50px;
+    margin-bottom: 10px;
+    margin-right: 0px;
+  }
+  .login-input-div input[type="email"],input[type="text"],input[type="password"]{
+    font-size: 23px;
+  }
+   .passHideShowBtn{
+    font-size: 32px;
+    margin-right: 8px;
+  }
+  .otp-div {
+    width: 370px;
+    height: 37px;
+    margin: 20px 0px 12px 0px;
+  }
+  .otp-div input {
+    width: 30px;
+  }
+  .resend-otp-div {
+    width: 310px;
+    margin-top: 21px;
+  }
+  .resend-otp-div > p {
+    font-size: 14px;
+  }
+ 
+  .get-otp-btn {
+      width:170px;
+    height: 45px;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .input_form_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .reset_password_message>p{
+  width: 70%;
+}
+}
+
+@media screen and (max-width:920px){
+  .admin_login_page{
+    display: none;
+  }
+  .admin_login_text_view{
+    display: block;
+  }
+}

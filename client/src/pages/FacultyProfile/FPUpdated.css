@@ -1,0 +1,178 @@
+.update_user_profile_container{
+    width: 100%;
+    height: calc(100vh - 70px - 16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-behavior: smooth;
+}
+.update_user_profile_container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.update_user_profile_container::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+}
+
+.update_user_profile_container::-webkit-scrollbar-thumb:hover {
+  /* background-color: #555; */
+}
+
+.update_user_profile_container::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+.update_user_profile_main{
+    width: 40%;
+    height: auto;
+    padding: 20px 15px;
+    border: 1px solid gray;
+    border-radius: 8px;
+}
+.update_user_profile_heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+    font-weight: 600;
+    font-family: "Poppins" sans-serif;
+     /* color: #5E17EB; */
+     text-transform: uppercase;
+     font-size: 18px;
+     margin-bottom: 20px;
+     position: relative;
+}
+.update_user_profile_heading::after{
+    content: "";
+    width: 140px;
+    height: 2px;
+    bottom: 0px;
+    background-color: #4096ff;
+    position: absolute;
+
+}
+.update_user_image_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    /* border: 1px solid red; */
+}
+.update_user_data_input_div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+.update_user_data_input_div>label{
+    font-size: 15px;
+    font-family: "Poppins" sans-serif;
+    font-weight: 500;
+}
+.update_user_data_input_div>input{
+    height: 35px;
+    /* background-color: rgb(176, 229, 212); */
+    outline: none;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    padding-left: 8px;
+    cursor: pointer;
+}
+.update_user_data_input_div>input::placeholder{
+ font-family: "Poppins" sans-serif;
+ font-weight: 500;
+}
+.update_user_data_input_div>input[type="text"]{
+ font-family: "Poppins";
+ font-weight: 400;
+}
+.update_user_data_input_div>input:hover{
+    background-color: #fff;
+   border: 1px solid #4096ff;
+}
+.update_user_data_input_div>input:focus{
+    background-color: #fff;
+   border: 1px solid #4096ff;
+}
+.update_user_profile_btn_div{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 28px;
+}
+
+
+/* -------------------------------------media query--------------------------------- */
+@media screen and (max-width:320px){
+    .update_user_profile_container{
+      height: auto;
+        overflow-y: hidden;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.update_user_profile_heading{
+    margin-bottom: 28px;
+}
+ .update_user_profile_main{
+    width: 100%;
+    border: none;
+    padding: 15px 5px;
+ }
+ .update_user_data_input_div>input{
+    font-size: 16px;
+ }
+}
+
+@media screen and (min-width:321px) and (max-width:430px){
+    .update_user_profile_container{
+        height: auto;
+        overflow-y: hidden;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.update_user_profile_heading{
+    font-size: 20px;
+    margin-bottom: 28px;
+}
+ .update_user_profile_main{
+    width: 94%;
+    border: none;
+    padding: 15px 5px;
+ }
+ .update_user_data_input_div>input{
+    font-size: 16px;
+    height: 40px;
+ }
+ .update_user_profile_heading::after{
+    width: 155px;
+}
+}
+
+@media screen and (min-width:431px) and (max-width:600px){
+    .update_user_profile_container{
+     height: auto;
+        overflow-y: hidden;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.update_user_profile_heading{
+    font-size: 22px;
+    margin-bottom: 28px;
+}
+ .update_user_profile_main{
+    width: 94%;
+    border: none;
+    padding: 15px 5px;
+ }
+ .update_user_data_input_div>label{
+    font-size: 19px;
+ }
+ .update_user_data_input_div>input{
+    font-size: 18px;
+    height: 45px;
+ }
+ .update_user_profile_heading::after{
+    width: 170px;
+}
+}

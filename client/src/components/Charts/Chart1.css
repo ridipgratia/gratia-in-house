@@ -1,0 +1,8 @@
+.leave_charts_2_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.leave_charts_2_div_1{
+    border: 1px solid red;
+}

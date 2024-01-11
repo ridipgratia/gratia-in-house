@@ -1,0 +1,35 @@
+.emp_all_document_preview{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-right: 10px;
+}
+.emp_all_document_preview>p{
+    flex: 1;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: "Poppins",sans-serif;
+    font-weight: 500;
+}
+.emp_all_document_preview>button{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    border: 1px solid #1AA7EC;
+    width: 110px;
+    height: 38px;
+    border-radius:10px ;
+     text-transform: uppercase;
+    font-size: 12px;
+    font-family: "Poppins",sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    color: #1AA7EC;
+    transition: all 0.2s ease-in-out;
+}
+.emp_all_document_preview>button:hover{
+    transform: scale(1.2);
+
+}

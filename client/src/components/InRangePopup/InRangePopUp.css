@@ -1,0 +1,56 @@
+.InRange-message-div{
+    margin-top: 15px;
+}
+.InRange-message-span{
+    display: block;
+     margin-top: 10px;
+     text-align: center;
+     color: green;
+     font-size: 15px;
+     font-family: "Poppins";
+}
+.faculty_login_attendance_late_mesg_div{
+    display: block;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+.faculty_login_attendance_late_mesg_div>span{
+    color: red;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: "poppins";
+}
+.faculty_login_attendance_late_mesg_div>textarea{
+   border: none;
+   border: 0.5px solid gray;
+   border-radius: 6px;
+   padding: 8px;
+   outline: none;
+   resize: none;
+   font-family: 'Poppins',sans-serif;
+   font-size: 12px;
+   font-weight: 500;
+}
+.faculty_login_attendance_late_mesg_div>textarea:focus{
+    border: 1px solid #4096ff;
+}
+.disableClass{
+    display: none !important;
+}
+.ableClass{
+    display: block !important;
+}
+
+/* ----------------------------media query----------------------- */
+@media screen and (max-width:320px){
+  .InRange-message-span{
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width:321px) and (max-width:420px){
+    .InRange-message-span{
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,332 @@
+.faculty_profile_details_container{
+    height: calc(100vh - 70px - 16px);
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+.faculty_profile_details_container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.faculty_profile_details_container::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+}
+
+.faculty_profile_details_container::-webkit-scrollbar-thumb:hover {
+  /* background-color: #555; */
+}
+
+.faculty_profile_details_container::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+.faculty_profile_details{
+    width: 40%;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px 10px;
+    border: 1px solid gray;
+    border-radius: 8px;
+}
+.faculty_profile_all_details_container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.faculty_profile_image_div{
+  width:90px;
+  height:90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  position: relative;
+}
+.profile_camera_div{
+    position: absolute;
+    bottom: 5px;
+    right: -2px;
+}
+.profile_camera_div>span{
+  width:30px;
+  height: 30px;
+  background-color: #5E17EB;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.img_upload_input{
+    display: none !important;
+}
+.faculty_profile_image_div>img{
+     width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 50%;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.faculty_profile_image_div>span{
+    width: 100%;
+    height: 100%;
+    font-size: 100px;
+    border-radius: 50%;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(137, 133, 133);   
+ 
+}
+.edit_btn_div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.edit_btn_div>span{
+    font-size: 24px;
+    cursor: pointer;
+     color: #5E17EB;
+}
+.edit_btn_div>span:hover{
+     color: #7343d5;
+}
+.faculty_profile_personal_details_div{
+    width: 90%;
+    margin-top: 15px;
+    margin-right: 15px !important;
+    overflow-x: scroll;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.faculty_profile_personal_details_div::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.faculty_profile_personal_details_div {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.faculty_profile_personal_details_div>p{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+.faculty_profile_personal_details_div>p>span{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 15px;
+}
+.faculty_profile_personal_details_div>p>span:first-child{
+    padding-left: 16px;
+     font-weight: 500;
+}
+
+/* -------------------------------------media query------------------------------- */
+@media screen and (max-width:320px){
+     .faculty_profile_details_container{
+    height: auto;
+    overflow-y: hidden;
+    padding-top: 0px;
+    padding-bottom: 00px;  
+}
+.faculty_profile_all_details_container{
+   margin-top: 15px;
+}
+.faculty_profile_details{
+    width: 100%;
+    height: 500px !important;
+     box-shadow: none;  
+     border: none;
+     padding: 0px;
+}
+.faculty_profile_image_div{
+    width: 100px;
+    height: 100px;
+}
+.faculty_profile_image_div>span{
+    font-size: 100px;
+}
+.faculty_profile_image_div>img{
+     width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 50%;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile_camera_div{
+    position: absolute;
+    bottom: 0px;
+    right: 3px;
+}
+.profile_camera_div>span{
+  width:35px;
+  height: 35px;
+  font-size: 22px;
+}
+.edit_btn_div{
+    margin-top: 15px;
+}
+.edit_btn_div>span{
+    font-size: 26px;
+}
+
+/* -------------------------------------------------------------------------------------- */
+.faculty_profile_personal_details_div{
+    width: 100%;
+    overflow-x: scroll;
+    margin-top: 30px;
+    padding: 0px;
+}
+.faculty_profile_personal_details_div>p>span{
+    font-size: 13px;
+     font-family: "Poppins",sans-serif;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.faculty_profile_personal_details_div::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.faculty_profile_personal_details_div {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+}
+@media screen and (min-width:321px) and (max-width:430px){
+    .faculty_profile_details_container{
+    height: auto;
+    overflow-y: hidden;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.faculty_profile_all_details_container{
+   margin-top: 15px;
+}
+.faculty_profile_details{
+    width: 100%;
+    height: 530px !important;
+     box-shadow: none;  
+     border: none;
+     padding: 20px 0px;
+}
+.faculty_profile_image_div{
+    width: 110px;
+    height: 110px;
+}
+.faculty_profile_image_div>span{
+    font-size: 110px;
+}
+.faculty_profile_image_div>img{
+     width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 50%;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile_camera_div{
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+}
+.profile_camera_div>span{
+  width:38px;
+  height: 38px;
+  font-size: 24px;
+}
+.edit_btn_div{
+    padding: 0px 20px;
+}
+.edit_btn_div>span{
+    font-size: 28px;
+}
+.faculty_profile_personal_details_div{
+    width: 100%;
+    overflow-x: scroll;
+    margin-top: 40px !important;
+    padding: 0px;
+    margin-right: 0px !important;
+}
+.faculty_profile_personal_details_div>p>span{
+    font-size: 15px;
+    font-family: "Poppins",sans-serif;
+}
+
+.faculty_profile_personal_details_div>p>span:first-child{
+    padding-left: 0px;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.faculty_profile_personal_details_div::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.faculty_profile_personal_details_div {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+}
+/* ------------------------------------------for tablet size--------------------- */
+@media screen and (min-width: 431px) and (max-width: 920px){
+
+    .faculty_profile_details_container{
+    height: auto;
+    overflow-y: hidden;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.faculty_profile_all_details_container{
+   margin-top: 15px;
+}
+.faculty_profile_details{
+    width: 90%;
+     box-shadow: none;  
+     border: none;
+     padding: 20px 0px;
+}
+.faculty_profile_image_div>span{
+    width: 100%;
+    height: 100%;
+    font-size: 120px;
+}
+.faculty_profile_image_div{
+    width: 120px;
+    height: 120px;
+}
+.profile_camera_div{
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+}
+.profile_camera_div>span{
+  width:40px;
+  height: 40px;
+  font-size: 24px;
+}
+
+.edit_btn_div{
+    margin-top: 18px;
+}
+.edit_btn_div>span{
+    font-size: 38px;
+}
+.faculty_profile_personal_details_div{
+    margin-top: 50px;
+}
+.faculty_profile_personal_details_div>p>span{
+    font-size: 21px;
+}
+.faculty_profile_personal_details_div>p>span:first-child{
+    padding-left: 0px;
+}
+}

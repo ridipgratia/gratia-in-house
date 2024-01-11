@@ -1,0 +1,170 @@
+.admin_edit_employee_details_container{
+    height:calc(100vh - 70px);
+    /* border: 2px solid red; */
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+.admin_edit_employee_details_container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.admin_edit_employee_details_container::-webkit-scrollbar-thumb {
+  /* background-color: #888; */
+  border-radius: 6px;
+}
+
+.admin_edit_employee_details_container::-webkit-scrollbar-thumb:hover {
+  /* background-color: #555; */
+}
+
+.admin_edit_employee_details_container::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+.admin_edit_employee_details_div{
+  margin-bottom: 25px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: #fff;
+  margin: 10px;
+  padding: 15px 0px;
+  border-radius: 5px;
+}
+.admin_edit_employee_details_div>h5{
+    display: inline-block;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0px 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.admin_edit_employee_details_div>h5::before{
+    content: "";
+    width: 80px;
+    height: 3px;
+    background-color: #675cff;
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+}
+.admin_edit_employee_details{
+     padding: 0px 20px;
+      width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    /* padding: 30px 20px; */
+}
+.admin_edit_employee_details>div>label{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.admin_edit_employee_details>div>input{
+    width: 100%;
+    height: 38px;
+    outline: none;
+    border: 0.5px solid lightgray;
+    padding-left: 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 300;
+   font-family: 'Poppins', sans-serif;
+}
+.admin_edit_employee_details>div>input:hover{
+    border: 0.5px solid #4096ff;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.admin_edit_employee_details>div>textarea{
+     width: 100%;
+    /* height: 38px; */
+    outline: none;
+    border: 0.5px solid lightgray;
+    padding-left: 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 300;
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  resize: none;
+}
+.admin_edit_employee_details>div>textarea:hover{
+    border: 0.5px solid #4096ff;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .emp_edit_form_container{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.emp_edit_form_div{
+    width: 100%;
+    margin-bottom: 8px;
+}
+.emp_edit_form_div>input{
+    width: 100%;;
+  height: 35px;
+  border: none;
+  outline: none;
+  border: 1px solid rgb(191, 189, 189);
+  border-radius: 4px;
+  padding-left: 8px;
+}
+.emp_edit_form_div>input[type="text"]{
+    font-size: 13px;
+    font-family: "Poppins",sans-serif;
+    font-weight: 500;
+}
+.emp_edit_form_div>input[type="date"]{
+    font-size: 13px;
+    font-family: "Poppins",sans-serif;
+    font-weight: 500;
+}
+.edit_btn_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+.edit_btn_div>button{
+    width: 100px;
+    padding: 6px 20px;
+    border: none;
+    outline: none;
+    background-color: rgb(82, 82, 243);
+    color:#ddd;
+    font-family: "Poppins",sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.edit_btn_div>button:hover{
+  background-color: rgb(48, 48, 234);  
+} */
