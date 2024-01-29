@@ -480,46 +480,83 @@ const sedMailer = async (password, emp_id, first_name, email) => {
 }
 
 module.exports.update = async function (req, res) {
+  var check = false;
   try {
     const userObject = {
-      emp_id: req.body.emp_id,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
-      guardian_name: req.body.guardian_name,
-      religion: req.body.religion,
-      address: req.body.address,
-      dob: req.body.dob,
-      phone_no: req.body.contact_no,
+      contact_no: req.body.contact_no,
       designation: req.body.designation,
     };
-
+    var user = await UserModel.findOne({
+      where: {
+        id: req.body.id
+      }
+    });
+    if (!user) {
+      return res.status(200).json({
+        status: 400,
+        message: "user details not found !"
+      });
+    }
     // Update user information in UserModel
     await UserModel.update(userObject, {
       where: { id: req.body.id },
     });
-
-    // Update phone number in PersonalDetailsModel
-    await UsersPersonalDetail.update(
-      { phone_no: req.body.phone_no },
-      { where: { user_id: req.body.id } }
-    );
-
-    const updatedUser = await UserModel.findOne({ where: { id: req.body.id } });
-    const personalDetails = await UsersPersonalDetail.findOne({
-      where: { user_id: req.body.id },
-    });
-
-    res.status(200).json({
-      user: {
-        ...updatedUser.toJSON(),
-        phone_no: personalDetails.phone_no,
-      },
-    });
+    check = true;
   } catch (error) {
-    res.status(400).json({
-      error: error.message,
+    check = false;
+  }
+  if (check) {
+    var user;
+    try {
+      user = await UserModel.findOne({
+        where: {
+          id: req.body.id
+        }
+      });
+      check = true;
+    } catch (err) {
+      check = false;
+    }
+    if (check) {
+      if (user) {
+        return res.status(200).json({
+          status: 200,
+          user: user
+        });
+      } else {
+        return res.status(200).json({
+          status: 400,
+          message: "No data found after updated "
+        })
+      }
+    } else {
+      return res.status(200).json({
+        status: 400,
+        message: "server error in retriving new data "
+      });
+    }
+  } else {
+    return res.status(200).json({
+      status: 400,
+      message: "server error please try later !"
     });
   }
+
+
+
+  // Update phone number in PersonalDetailsModel
+  // await UsersPersonalDetail.update(
+  //   { phone_no: req.body.phone_no },
+  //   { where: { user_id: req.body.id } }
+  // );
+
+  // const updatedUser = await UserModel.findOne({ where: { id: req.body.id } });
+  // const personalDetails = await UsersPersonalDetail.findOne({
+  //   where: { user_id: req.body.id },
+  // });
+
 };
 
 module.exports.profileImage = async function (req, res, err) {

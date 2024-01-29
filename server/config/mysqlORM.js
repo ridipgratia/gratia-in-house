@@ -20,12 +20,19 @@ const sequelize_db = new Sequelize(process.env.DATABASE_NAME, process.env.USER_N
     host: process.env.DB_HOST,
     dialect: 'mysql',
     logging: false,
-    pool: {
-        max: 100,
-        min: 0,
-        acquire: 30000,
-        idle: 30000
-    }
+
+    // dialectOptions: {
+    //     "connectTimeout": 60000
+    // },
+    // define: {
+    //     timestamps: false
+    // },
+    // pool: {
+    //     // max: 10,
+    //     // min: 0,
+    //     acquire: 30000,
+    //     idle: 30000
+    // }
 });
 try {
     sequelize_db.authenticate();

@@ -3,7 +3,7 @@
 //IMPORT THINGS ON THE TOP
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const express = require("express");
-const { Op, Sequelize } = require('sequelize');
+const { Op, Sequelize, EmptyResultError, where, literal } = require('sequelize');
 const helper = require("../helper/helper");
 
 
@@ -78,10 +78,10 @@ module.exports.allEmployee = async function (req, res) {
         const users = await UserModel.findAll({
             order: [['created_at', 'DESC']]
         });
-        res.status(200).json({ users });
+        res.status(200).json({ status: 200, users: users });
     } catch (error) {
         console.log('Error retrieving employee:', error);
-        res.status(500).json({ error: 'Error retrieving employee' });
+        res.status(200).json({ status: 400, error: 'Error retrieving employee' });
     }
 };
 
@@ -114,7 +114,27 @@ module.exports.attendanceExporter = async function (req, res) {
     const { start_date, end_date, } = req.body;
     try {
         const attendances = await UserAttendence.findAll({
-
+            attributes: [
+                'in_office',
+                'out_office',
+                'status',
+                'msg',
+                'in_time',
+                'out_time',
+                'in_date',
+                [
+                    literal(`
+                      TIME_FORMAT(
+                        ABS(TIMEDIFF(
+                          STR_TO_DATE(in_time, '%h:%i:%s %p'),
+                          STR_TO_DATE(out_time, '%h:%i:%s %p')
+                        )),
+                        "%H:%i:%s"
+                      )
+                    `),
+                    'working_hours',
+                ],
+            ],
             where: {
                 // user_id: user_id,
                 in_date: {
@@ -126,11 +146,13 @@ module.exports.attendanceExporter = async function (req, res) {
                 attributes: ["first_name", "last_name", "user_image", "emp_id", "designation"],
             },
         });
-
-        res.json(attendances);
+        return await res.status(200).json({
+            status: 200,
+            attendances: attendances
+        })
     } catch (error) {
         console.log(error);
-        res.status(500).json({ error: "An error occurred while retrieving attendance." });
+        return await res.status(200).json({ status: 400, message: "An error occurred while retrieving attendance." });
     }
 
 };
@@ -138,7 +160,27 @@ module.exports.UserattendanceExporter = async function (req, res) {
     const { start_date, end_date, user_id } = req.body;
     try {
         const attendances = await UserAttendence.findAll({
-
+            attributes: [
+                'in_office',
+                'out_office',
+                'status',
+                'msg',
+                'in_time',
+                'out_time',
+                'in_date',
+                [
+                    literal(`
+                      TIME_FORMAT(
+                        ABS(TIMEDIFF(
+                          STR_TO_DATE(in_time, '%h:%i:%s %p'),
+                          STR_TO_DATE(out_time, '%h:%i:%s %p')
+                        )),
+                        "%H:%i:%s"
+                      )
+                    `),
+                    'working_hours',
+                ],
+            ],
             where: {
                 user_id: user_id,
                 in_date: {
@@ -150,11 +192,13 @@ module.exports.UserattendanceExporter = async function (req, res) {
                 attributes: ["first_name", "last_name", "user_image", "emp_id", "designation"],
             },
         });
-
-        res.json(attendances);
+        return res.status(200).json({
+            status: 200,
+            attendances: attendances
+        });
     } catch (error) {
         console.log(error);
-        res.status(500).json({ error: "An error occurred while retrieving attendance." });
+        return await res.status(200).json({ status: 400, message: "An error occurred while retrieving attendance." });
     }
 
 };
@@ -188,7 +232,6 @@ module.exports.activityExporter = async function (req, res) {
         const activity = await UserActivity.findAll({
 
             where: {
-
                 date: {
                     [Op.between]: [start_date, end_date],
                 },
@@ -277,7 +320,6 @@ module.exports.deleteUser = async function (req, res) {
     const { id } = req.body;
     var check;
     var user;
-    // const t = await sequelize_db.transaction();
     try {
         user = await UserModel.findOne({
             where: {
@@ -290,7 +332,39 @@ module.exports.deleteUser = async function (req, res) {
     }
     if (check) {
         if (user) {
-            return res.status(200).json({ status: 200, message: user });
+            try {
+                const t = await sequelize_db.transaction();
+                // Delete the user's attendances
+                await UserAttendence.destroy({ where: { user_id: id } }, {
+                    transaction: t
+                });
+                // Delete the user's activities
+                await UserActivity.destroy({ where: { user_id: id } }, {
+                    transaction: t
+                });
+                // Delete the user's leaves
+                await UserLeave.destroy({ where: { user_id: id } }, {
+                    transaction: t
+                });
+                await UserModel.destroy({
+                    where: {
+                        id: id
+                    }
+                },
+                    {
+                        transaction: t
+                    });
+                await t.commit();
+                check = true;
+            } catch (error) {
+                await t.rollback();
+                check = false;
+            }
+            if (check) {
+                return res.status(200).json({ status: 200, message: "User data deleted !" });
+            } else {
+                return res.status(200).json({ status: 200, message: "Server eror please try again" });
+            }
         } else {
             return res.status(200).json({ status: 400, message: "user not found " });
         }
@@ -711,6 +785,246 @@ module.exports.updateAllUserDetails = async (req, res) => {
         console.error(error);
         return res.status(500).json({ message: 'Server error' });
     }
-
-
+}
+module.exports.viewUserDetails = async (req, res) => {
+    var check;
+    var user;
+    if (req.body.emp_id) {
+        try {
+            user = await UserModel.findOne({
+                where: {
+                    emp_id: req.body.emp_id
+                }
+            });
+            check = true;
+        } catch (error) {
+            check = false;
+        }
+        if (check) {
+            if (user) {
+                return res.status(200).json({
+                    status: 200,
+                    user: user
+                });
+            } else {
+                check = "User details not found  ";
+            }
+        } else {
+            check = "Server error please try again ";
+        }
+    } else {
+        check = "Required employee ID not found ";
+    }
+    return res.status(200).json({ status: 400, message: check });
+}
+module.exports.editEmployeeDetails = async (req, res) => {
+    var emp_id = req.body.emp_id;
+    var status = 400;
+    var message;
+    if (req.body.emp_id) {
+        try {
+            var users = await UserModel.findOne({
+                where: {
+                    id: emp_id
+                }
+            });
+            if (users) {
+                return await res.status(200).json({
+                    status: 200,
+                    employee_details: users
+                });
+            } else {
+                message = "Employee details not found !";
+            }
+        } catch (err) {
+            message = "Server error please try later ";
+        }
+    } else {
+        message = "No employee id found";
+    }
+    return await res.status(200).json({ status: status, message: message });
+}
+module.exports.editEmployeeDetailsSubmit = async (req, res) => {
+    var check = false;
+    var status = 400;
+    var message = "";
+    const form_data = [
+        req.body.request_id,
+        req.body.first_name,
+        req.body.last_name,
+        req.body.dob,
+        req.body.gender,
+        req.body.emp_id,
+        req.body.designation,
+        req.body.label,
+        req.body.date_of_joining,
+        req.body.paid_leaves,
+        req.body.email,
+        req.body.phoneNumber,
+        req.body.presentAddress,
+        req.body.permanentAddress
+    ];
+    const error_message = [
+        "request_id",
+        "first_name",
+        "last_name",
+        "dob",
+        "gender",
+        "emp_id",
+        "designation",
+        "label",
+        "date_of_joining",
+        "paid_leaves",
+        "email",
+        "contact_no",
+        "present_address",
+        "permanent_address"
+    ];
+    var count_input = 0;
+    for (var i = 0; i < form_data.length; i++) {
+        if (form_data[i] === "" || (typeof (form_data[i]) === "number" && form_data[i] == 0)) {
+            check = false;
+            message = error_message[count_input] + " Field is Required !";
+            break;
+        } else {
+            check = true;
+        }
+        count_input++;
+    }
+    if ((check) && (req.body.phoneNumber.toString().length != 10)) {
+        check = false;
+        message = "Enter a valid phone number";
+    }
+    if (!check) {
+        return await res.status(200).json({
+            status: status,
+            message: message
+        });
+    }
+    var dob = convertDate(form_data[3]);
+    var joining_date = convertDate(form_data[8]);
+    const checkEmpID = await UserModel.findOne({
+        where: {
+            id: {
+                [Op.ne]: req.body.request_id
+            },
+            emp_id: req.body.emp_id
+        }
+    });
+    if (checkEmpID) {
+        return await res.status(200).json({
+            status: status,
+            message: "Employee ID already assigned to other employee"
+        });
+    }
+    const checkEmailID = await UserModel.findOne({
+        where: {
+            id: {
+                [Op.ne]: req.body.request_id
+            },
+            email: req.body.email
+        }
+    });
+    if (checkEmailID) {
+        return await res.status(200).json({
+            status: status,
+            message: "Email ID already used by other employee"
+        });
+    }
+    const now = new Date();
+    const userUpdateData = {
+        emp_id: req.body.emp_id,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        contact_no: req.body.phoneNumber,
+        designation: req.body.designation,
+        perment_address: req.body.permanentAddress,
+        current_address: req.body.presentAddress,
+        dob: dob,
+        date_of_joining: joining_date,
+        label: req.body.label,
+        gender: req.body.gender,
+        paid_leaves: req.body.paid_leaves, // Use the calculated pro rata value
+        updated_at: now.toISOString(),
+    }
+    try {
+        const t = await sequelize_db.transaction();
+        await UserModel.update(
+            userUpdateData,
+            {
+                where: {
+                    id: req.body.request_id
+                }
+            }, {
+            transaction: t
+        }
+        );
+        await t.commit();
+        check = true;
+    } catch (err) {
+        await t.rollback();
+        check = false;
+    }
+    if (!check) {
+        return await res.status(200).json({
+            status: status,
+            message: "server error please try later "
+        });
+    }
+    return await res.status(200).json({
+        status: 200,
+        message: "Successfully employee data updated "
+    });
+}
+// Search By On Input Name And Emp ID 
+module.exports.searchOnInput = async (req, res) => {
+    var status = 400;
+    var message = "";
+    if (req.body.search_query) {
+        var search_query = req.body.search_query;
+        try {
+            var data = await UserModel.findAll({
+                where: {
+                    [Op.or]: [
+                        // {
+                        //     first_name: {
+                        //         [Op.like]: `%${search_query}%`
+                        //     }
+                        // },
+                        // {
+                        //     last_name: {
+                        //         [Op.like]: `%${search_query}%`
+                        //     }
+                        // },
+                        literal('CONCAT(first_name,last_name) LIKE "%' + search_query + '%"'),
+                        {
+                            emp_id: {
+                                [Op.like]: `%${search_query}%`
+                            }
+                        }
+                    ]
+                }
+            });
+            return await res.status(200).json({
+                status: 200,
+                users: data
+            });
+        } catch (err) {
+            message = "Server error please try later !";
+        }
+    } else {
+        message = "Requirement are not field";
+    }
+    return await res.status(200).json({
+        status: status,
+        message: message
+    });
+}
+const convertDate = (date) => {
+    var d = new Date(date),
+        month = d.getMonth() + 1,
+        day = d.getDate(),
+        year = d.getFullYear();
+    return month + "-" + day + "-" + year;
 }
