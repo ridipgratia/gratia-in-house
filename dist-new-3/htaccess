@@ -27,3 +27,13 @@
     Header always append X-Frame-Options SAMEORIGIN
 </IfModule>
 
+
+
+
+
+
+notes-----
+	after put file in project_folder/dist/
+	sudo a2enmod rewrite
+	sudo a2enmod headers
+	sudo systemctl restart apache2
