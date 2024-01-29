@@ -1,0 +1,28 @@
+.clean_box_card{
+    height: 138px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.clean_box_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+.clean_box_div>span{
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 30px;
+    margin-right: 10px;
+}
+.clean_box_div>p{
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 10px;
+}

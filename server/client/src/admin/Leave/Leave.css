@@ -1,0 +1,389 @@
+.admin-emp-leaves-list-div{
+ height:calc(100vh - 70px - 16px);
+}
+.admin_leave_heading_container{
+    height: 45px;
+}
+.admin_leave_heading_container>h2{
+    font-family: "Poppins",sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+.admin_filter_btn{
+    width: 100%;
+    display: flex;
+    gap:15px;
+    height: 45px;
+}
+.admin_filter_btn>button{
+    width: 110px;
+    height: 45px;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     border-radius: 6px;
+     font-family: 'Poppins',sans-serif;
+     cursor: pointer;
+     font-size: 15px;
+     font-weight: 500;
+     transition: 0.3s ease-in-out;
+     position: relative;
+}
+.admin_filter_btn>button:hover{
+     background-color: #ffffff;
+}
+.admin_leave_category_btn{
+    background-color: #ffffff;
+}
+.under_line_1::before{
+    content: "";
+    width:110px;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    transition: 0.3s ease;
+}
+.under_line_2::before{
+    content: "";
+    width:110px;
+    height: 2px;
+    background-color: #e8ae0f;
+    position: absolute;
+    bottom: 0;
+    transition: 0.3s ease;
+}
+.under_line_3::before{
+    content: "";
+    width:110px;
+    height: 2px;
+    background-color: rgb(19, 192, 19);
+    position: absolute;
+    bottom: 0;
+    transition: 0.3s ease;
+}
+.under_line_4::before{
+    content: "";
+    width:110px;
+    height: 2px;
+    background-color: rgb(233, 59, 59);
+    position: absolute;
+    bottom: 0;
+    transition: 0.3s ease;
+}
+.admin_filter_btn>button:nth-child(2) span{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+   background-color: #e8ae0f;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-right: 5px;
+}
+.admin_filter_btn>button:nth-child(3) span{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+   background-color: rgb(19, 192, 19);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-right: 5px;
+}
+.admin_filter_btn>button:last-child span{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: rgb(233, 59, 59);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-right: 5px;
+}
+.dmin_applied_leave_name_img_div{
+    display: flex;
+    align-items: center;
+}
+.admin_applied_leave_img_div{
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+     margin-right: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+.admin_applied_leave_img_div>span{
+    font-size: 40px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color:gray;
+}
+.admin_applied_leave_img{
+    width: 35px;
+    height: 35px;
+    /* width: 100%; */
+    object-fit: cover;
+    border-radius: 100%;
+}
+.admin_applied_leave_name_img_div>span{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+}
+.leave_applied_date_admin{
+    color: gray;
+     font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+.apply_leave_child_div_1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.apply_leave_child_div_1>p{
+    display: flex;
+}
+.apply_leave_child_div_1>p>span{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+}
+.apply_leave_child_div_1>p>span:last-child{
+    margin-left: 5px;
+}
+.apply_leave_child_div_2{
+    /* border:1px solid red; */
+}
+.approve_class{
+    background-color: #B5F5D1 !important;
+    color:rgb(10, 138, 10) !important;
+}
+.await_class{
+   background-color: #FFEFC5 !important;
+   color:#d19f17 !important
+}
+.reject_class{
+    background-color: #FFEFEE !important;
+    color:#FF7C7C !important;
+}
+/* ================================================== */
+.admin_leave_list_data_container{
+    height: calc(100vh - 70px - 16px - 45px - 45px);
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    padding: 15px 0px;
+}
+.admin_leave_list_data_container::-webkit-scrollbar {
+  width: 3px;
+}
+
+.admin_leave_list_data_container::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+}
+
+.admin_leave_list_data_container::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+/* ------------------------------users leave details css--------------- */
+.admin_user_leave_details_pop_up_div{
+     background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    width: 400px;
+    height: 490px;
+    position: absolute;
+    left: 50%;
+    top:52%;
+    transform: translate(-50%,-50%);
+    z-index: 5;
+}
+.admin_leave_details_close_btn{
+    display: flex;
+    justify-content: flex-end;
+}
+.admin_leave_details_close_btn>span{
+    font-size: 24px;
+    border-left: 1px solid lightgray;
+    border-bottom:1px solid lightgray ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+}
+.admin_leave_details_close_btn>span:hover{
+    background-color: lightgrey;
+    cursor: pointer;
+}
+.admin_user_leave_details_data_div{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top:12px ;
+}
+.admin_user_leave_details_img_name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* margin-bottom: 10px; */
+}
+.admin_user_leave_details_img_name>p{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    color:#05122e;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+.admin_user_leave_details_img{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_user_leave_details_img>span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+    color: gray;
+}
+.admin_user_leave_details_img>img{
+    width:80px;
+    height: 80px;
+    /* width: 100%; */
+    object-fit: cover;
+     border-radius: 100%;
+}
+.admin_user_leave_details_data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.admin_user_leave_details_data>p{
+    width: 65%;
+    /* border:1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.admin_user_leave_details_data>p>span{
+    /* border:1px solid green; */
+    width:50%;
+}
+.admin_user_leave_details_data>p>span:first-child{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+}
+.admin_user_leave_details_data>p>span:last-child{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: capitalize;
+    color:gray;
+}
+.admin_user_leave_details_reason_mesg_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin_user_leave_medical_report_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_user_leave_medical_report{
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin_user_leave_medical_report>span{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    width:50%
+}
+.admin_user_leave_medical_report>div{
+  width:50%  
+}
+
+.admin_user_leave_details_reject_accept_btn_div{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    margin-top: 20px;
+}
+.admin_user_leave_details_reject_accept_btn{
+    width:65%;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+.admin_user_leave_details_reject_accept_btn>button{
+    border: none;
+    outline: none;
+}
+.admin_user_leave_details_reject_accept_btn>button:first-child{
+    background-color: rgb(231, 58, 58);
+    color: #fff;
+    padding: 5px 20px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.admin_user_leave_details_reject_accept_btn>button:last-child{
+    background-color: #4CC713;
+    color: #fff;
+    padding: 5px 20px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.admin_accept_reject_btn{
+    width:65%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+.admin_leave_approved_btn{
+    border: none;
+    outline: none;
+    background-color: #4CC713;
+    color: #fff;
+    padding: 5px 20px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    text-transform: uppercase;
+}  
+.admin_leave_rejected_btn{
+    border: none;
+    outline: none;
+   background-color: rgb(231, 58, 58);
+    color: #fff;
+    padding: 5px 20px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    text-transform: uppercase; 
+}

@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  
+}
+.app-container {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+:root {
+  --primary-color:#675cff;
+}
+
+.check_internet_connection_div{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.check_internet_connection_div>span{
+  font-size: 25px;
+  font-weight: 600;
+}
+.check_internet_connection_div>p{
+  font-size: 13px;
+}

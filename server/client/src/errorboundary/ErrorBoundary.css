@@ -1,0 +1,82 @@
+.error_boundary_div{
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.errboundary_img_div{
+    width: 250px;
+    height: 220px;
+}
+.errboundary_img_div>img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.error_boundary_div>h4{
+    font-family: "Poppins"sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #FF5A5F;
+}
+.errboundary_btn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+     padding: 7px 15px;
+     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     border-radius: 6px;
+     font-family: "Poppins"sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px;
+  height: 34px;
+  width: 160px;
+  border: none;
+  background: #ff362b34;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.lable {
+  line-height: 20px;
+  font-size: 14px;
+  color: #FF342B;
+  font-family: "Poppins"sans-serif;
+  /* letter-spacing: 1px; */
+}
+
+.button:hover {
+  background: #ff362b52;
+}
+
+.button:hover .svg-icon {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+a{
+    text-decoration: none;
+}
+
+@media screen and (max-width:768px){
+    .error_boundary_div>h4{
+    font-size: 18px;
+}
+}

@@ -1,0 +1,90 @@
+.absent-attend-table-head{
+    width: 100%;
+    height: 42px !important;
+    background-color: rgb(79, 79, 217) !important;
+    color:white;
+    display: flex;
+}
+.absent-attend-table-head>span{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.absent-attend-table-head>span:first-child{
+    width: 20%;
+}
+.absent-attend-table-head>span:nth-child(2){
+    width:20%;
+}
+.absent-attend-table-head>span:nth-child(3){
+    width:20%;
+}
+.absent-attend-table-head>span:nth-child(4){
+    width:20%;
+}
+.absent-attend-table-head>span:nth-child(5){
+    width:20%;
+}
+.absent-attend-table-body{
+    width: 100%;
+    height: calc(100vh - 70px - 16px - 60px - 40px - 42px);
+     overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+.absent-attend-table-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+.absent-attend-table-body::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+}
+
+.absent-attend-table-body::-webkit-scrollbar-track {
+  background-color: gray;
+}
+.absent-attend-table-data{
+    width: 100%;
+    height: 42px;
+    display: flex;
+    border-bottom: 1px solid lightgray;
+}
+.absent-attend-table-data>span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+     font-family: "Poppins",sans-serif;
+    font-weight: 500;
+    padding: 9px 6px;
+    flex-wrap: wrap !important;
+}
+.absent-attend-table-data>span:first-child{
+    width: 20%;
+    text-transform: capitalize;
+}
+.absent-attend-table-data>span:nth-child(2){
+    width:20%;
+}
+.absent-attend-table-data>span:nth-child(3){
+    width:20%;
+     text-transform: capitalize;
+}
+.absent-attend-table-data>span:nth-child(4){
+    width:20%;
+}
+.absent-attend-table-data>span:nth-child(5){
+    width:20%;
+}
+
+/* ===============media query for more than 1280px screen===================== */
+@media only screen and (min-width: 1280px) {
+ .absent-attend-table-head{
+    height: 52px !important;
+}
+.absent-attend-table-body{
+    height: calc(100vh - 70px - 16px - 60px - 40px - 52px);
+}
+.absent-attend-table-data{
+    height: 50px;
+}
+}

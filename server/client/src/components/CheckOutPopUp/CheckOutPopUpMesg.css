@@ -1,0 +1,74 @@
+.checkout-activities-mesg{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.daily_activity_heading{
+   margin-bottom: 15px;
+    color: #111010;
+    text-transform: capitalize;
+    position: relative;
+}
+.daily_activity_heading::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom:-1px;
+    width: 100%;
+    height: 3px;
+    background-color: #4096ff;
+}
+.checkout-activities_span{
+    display: flex;
+    flex-direction: column;
+}
+.checkout-activities_span>label{
+    font-size: 14px;
+    color: #111010;
+    font-family: 'Poppins', sans-serif;
+     font-weight: 500;
+}
+.required_field{
+    color:red;
+}
+.checkout-activities_span>input{
+    max-width: 320px;
+    width: 320px;
+    height: 34px;
+    border: none;
+    outline: none;
+    border: 0.5px solid #4096ff;
+     font-family: 'Poppins', sans-serif;
+     font-size: 15px;
+     font-weight: 400;
+     border-top: 0px;
+     border-left: 0px;
+     border-right: 0px;
+     padding-bottom: 0px;
+}
+.checkout-activities_span>input[type="text"]{
+    line-height: 0px;
+}
+.checkout-activities_span>input::placeholder{
+    font-size: 12px;
+}
+.counter_span{
+    width: 100%;
+    text-align: end;;
+    font-size: 13px;
+}
+
+@media screen and (max-width:320px){
+    .checkout-activities_span>input{
+    width: 200px;    
+}
+}
+
+@media screen and (min-width:321px) and (max-width:430px){
+    .checkout-activities_span>input{
+    width: 275px;
+    
+}
+}
