@@ -5,7 +5,7 @@
 const express = require("express");
 const { Op, Sequelize, EmptyResultError, where, literal } = require('sequelize');
 const helper = require("../helper/helper");
-
+const bcrypt = require("bcryptjs");
 
 
 
@@ -1027,4 +1027,11 @@ const convertDate = (date) => {
         day = d.getDate(),
         year = d.getFullYear();
     return month + "-" + day + "-" + year;
+}
+module.exports.generatePassword = async (req, res) => {
+    const salt = bcrypt.genSaltSync(10);
+    var password = bcrypt.hashSync('password', salt);
+    return res.status(200).json({
+        password: password
+    });
 }

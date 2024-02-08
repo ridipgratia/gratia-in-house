@@ -124,6 +124,9 @@ router.route('/leave-deductions').post(HelperController.getLeaveDeductions);
 router.route('/paid-leave-balance').post(HelperController.getLeaveBalance);
 
 
+// Generate New Hash Password 
+router.route('/generate-password').post(AdminController.generatePassword);
+
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 module.exports = router;
