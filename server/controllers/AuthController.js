@@ -360,61 +360,71 @@ module.exports.register = async function (req, res) {
   const now = new Date(); // Current date
 
   if (!user) {
-    // const dateOfJoining = new Date(joining_date);
-    // const millisecondsInDay = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
+    const check_emp = await UserModel.findOne({
+      where: {
+        emp_id: req.body.emp_id
+      }
+    });
+    if (!check_emp) {
+      // const dateOfJoining = new Date(joining_date);
+      // const millisecondsInDay = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
 
-    // const daysRemaining =
-    //   Math.floor(
-    //     (new Date(dateOfJoining.getFullYear(), 11, 31) - dateOfJoining) /
-    //     millisecondsInDay
-    //   ) + 1;
-    // const daysInYear = 365; // Number of days in a non-leap year
-    // const proRataLeaveEntitlement = Math.round(
-    //   (daysRemaining / daysInYear) * 12
-    // );
-
-    const userObject = {
-      emp_id: req.body.emp_id,
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      email: req.body.email,
-      contact_no: req.body.phoneNumber,
-      designation: req.body.designation,
-      // address: req.body.address,
-      perment_address: req.body.permanentAddress,
-      current_address: req.body.presentAddress,
-      password: bcrypt.hashSync(password, salt),
-      status: "Active",
-      role: 0,
-      dob: dob,
-      date_of_joining: joining_date,
-      label: req.body.label,
-      gender: req.body.gender,
-      // paid_leaves: proRataLeaveEntitlement, // Use the calculated pro rata value
-      paid_leaves: req.body.paid_leaves, // Use the calculated pro rata value
-      created_at: now.toISOString(),
-      updated_at: now.toISOString(),
-    };
-
-    try {
-      const newUser = await UserModel.create(userObject);
-      res_data.message = "Registration Completed ";
-      res_data.status = 200;
-      check = true;
-    } catch (error) {
-      check = false;
-      res_data.message = "Server Error Please Try Later ";
-    }
-    if (check) {
-      // await sendMail(
-      //   newUser.first_name,
-      //   newUser.emp_id,
-      //   newUser.email,
-      //   password
+      // const daysRemaining =
+      //   Math.floor(
+      //     (new Date(dateOfJoining.getFullYear(), 11, 31) - dateOfJoining) /
+      //     millisecondsInDay
+      //   ) + 1;
+      // const daysInYear = 365; // Number of days in a non-leap year
+      // const proRataLeaveEntitlement = Math.round(
+      //   (daysRemaining / daysInYear) * 12
       // );
-      await sedMailer(password, req.body.emp_id, req.body.first_name, req.body.email);
-      return await res.status(200).json(res_data);
+
+      const userObject = {
+        emp_id: req.body.emp_id,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        contact_no: req.body.phoneNumber,
+        designation: req.body.designation,
+        // address: req.body.address,
+        perment_address: req.body.permanentAddress,
+        current_address: req.body.presentAddress,
+        password: bcrypt.hashSync(password, salt),
+        status: "Active",
+        role: 0,
+        dob: dob,
+        date_of_joining: joining_date,
+        label: req.body.label,
+        gender: req.body.gender,
+        // paid_leaves: proRataLeaveEntitlement, // Use the calculated pro rata value
+        paid_leaves: req.body.paid_leaves, // Use the calculated pro rata value
+        created_at: now.toISOString(),
+        updated_at: now.toISOString(),
+      };
+
+      try {
+        const newUser = await UserModel.create(userObject);
+        res_data.message = "Registration Completed ";
+        res_data.status = 200;
+        check = true;
+      } catch (error) {
+        check = false;
+        res_data.message = "Server Error Please Try Later ";
+      }
+      if (check) {
+        // await sendMail(
+        //   newUser.first_name,
+        //   newUser.emp_id,
+        //   newUser.email,
+        //   password
+        // );
+        await sedMailer(password, req.body.emp_id, req.body.first_name, req.body.email);
+        return await res.status(200).json(res_data);
+      } else {
+        return await res.status(200).json(res_data);
+      }
     } else {
+      res_data.message = "User Employee ID Already Exists ";
       return await res.status(200).json(res_data);
     }
 
