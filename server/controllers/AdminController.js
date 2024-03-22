@@ -1030,7 +1030,7 @@ const convertDate = (date) => {
 }
 module.exports.generatePassword = async (req, res) => {
     const salt = bcrypt.genSaltSync(10);
-    var password = bcrypt.hashSync('password', salt);
+    var password = bcrypt.hashSync(req.body.password, salt);
     return res.status(200).json({
         password: password
     });
