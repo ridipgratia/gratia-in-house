@@ -252,21 +252,41 @@ module.exports.activityExporter = async function (req, res) {
 module.exports.UseractivityExporter = async function (req, res) {
     const { start_date, end_date, user_id } = req.body;
     try {
-        const activity = await UserActivity.findAll({
+        // const activity = await UserActivity.findAll({
 
+        //     where: {
+        //         user_id: user_id,
+        //         date: {
+        //             [Op.between]: [start_date, end_date],
+        //         },
+        //     },
+        //     include: {
+        //         model: UserModel,
+        //         attributes: ["first_name", "last_name", "user_image", "emp_id", "designation"],
+        //     },
+        // });
+        const activity = await UserModel.findAll({
             where: {
-                user_id: user_id,
-                date: {
-                    [Op.between]: [start_date, end_date],
-                },
+                id: user_id
             },
+            attributes: ["first_name", "last_name", "designation"],
             include: {
-                model: UserModel,
-                attributes: ["first_name", "last_name", "user_image", "emp_id", "designation"],
-            },
+                model: UserActivity,
+                as: "activities",
+                where: {
+                    date: {
+                        [Op.between]: [start_date, end_date],
+                    },
+                }
+            }
         });
+        const startDate = new Date('2024-01-01');
+        const endDate = new Date('2024-04-01');
 
-        res.json(activity);
+        const differenceInMilliseconds = endDate - startDate;
+        const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+
+        return await res.json(differenceInDays);
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: "An error occurred while retrieving attendance." });
