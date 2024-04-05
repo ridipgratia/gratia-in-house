@@ -6,6 +6,7 @@ const express = require("express");
 const { Op, Sequelize, EmptyResultError, where, literal } = require('sequelize');
 const helper = require("../helper/helper");
 const bcrypt = require("bcryptjs");
+const { eachDayOfInterval, format } = require('date-fns');
 
 
 
@@ -280,13 +281,30 @@ module.exports.UseractivityExporter = async function (req, res) {
                 }
             }
         });
-        const startDate = new Date('2024-01-01');
-        const endDate = new Date('2024-04-01');
-
-        const differenceInMilliseconds = endDate - startDate;
-        const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
-
-        return await res.json(differenceInDays);
+        const startDate = new Date(start_date);
+        const endDate = new Date(end_date);
+        const date_wise_data = [];
+        const datesBetween = eachDayOfInterval({ start: startDate, end: endDate })
+            .map(date => format(date, 'yyyy-MM-dd'));
+        for (var i = 0; i < datesBetween.length; i++) {
+            var data = []
+            activity[0].activities.forEach(element => {
+                if (datesBetween[i] == element.date) {
+                    data.push(element);
+                    // data.push(activity[0].activities[i]);
+                }
+            });
+            console.log("Break");
+            if (data.length != 0) {
+                date_wise_data.push(data);
+            }
+        }
+        var employee_data = {
+            "first_name": activity[0].first_name,
+            "last_name": activity[0].last_name,
+            "designation": activity[0].designation
+        };
+        return await res.json({ date_wise_data: date_wise_data, employee_data: employee_data });
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: "An error occurred while retrieving attendance." });
