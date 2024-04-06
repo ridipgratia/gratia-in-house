@@ -230,19 +230,62 @@ module.exports.latestAttendance = async function (req, res) {
 module.exports.activityExporter = async function (req, res) {
     const { start_date, end_date } = req.body;
     try {
-        const activity = await UserActivity.findAll({
+        // const activity = await UserActivity.findAll({
 
-            where: {
-                date: {
-                    [Op.between]: [start_date, end_date],
-                },
-            },
+        //     where: {
+        //         date: {
+        //             [Op.between]: [start_date, end_date],
+        //         },
+        //     },
+        //     include: {
+        //         model: UserModel,
+        //         attributes: ["first_name", "last_name", "user_image", "emp_id", "designation"],
+        //     },
+        // });
+        const activity = await UserModel.findAll({
+            attributes: ["first_name", "last_name", "designation"],
             include: {
-                model: UserModel,
-                attributes: ["first_name", "last_name", "user_image", "emp_id", "designation"],
-            },
+                model: UserActivity,
+                as: "activities",
+                where: {
+                    date: {
+                        [Op.between]: [start_date, end_date],
+                    },
+                }
+            }
         });
+        const startDate = new Date(start_date);
+        const endDate = new Date(end_date);
+        const date_wise_data = [];
+        const datesBetween = eachDayOfInterval({ start: startDate, end: endDate })
+            .map(date => format(date, 'yyyy-MM-dd'));
 
+        activity.forEach(person => {
+            var person_data = [];
+            datesBetween.forEach(every_date => {
+                var sorted_data = [];
+                person.activities.forEach(data => {
+                    if (every_date == data.date) {
+                        sorted_data.push(data);
+                    }
+                });
+                if (sorted_data.length != 0) {
+                    person_data.push(sorted_data);
+                }
+            });
+            var employee_data = {
+                "first_name": person.first_name,
+                "last_name": person.last_name,
+                "designation": person.designation
+            };
+            var date_data = [
+                person_data,
+                employee_data
+            ];
+            date_wise_data.push(date_data);
+        });
+        return await res.json(date_wise_data);
+        // return await res.json({ date_wise_data: date_wise_data, employee_data: employee_data });
         res.json(activity);
     } catch (error) {
         console.log(error);
@@ -287,7 +330,7 @@ module.exports.UseractivityExporter = async function (req, res) {
         const datesBetween = eachDayOfInterval({ start: startDate, end: endDate })
             .map(date => format(date, 'yyyy-MM-dd'));
         for (var i = 0; i < datesBetween.length; i++) {
-            var data = []
+            var data = [];
             activity[0].activities.forEach(element => {
                 if (datesBetween[i] == element.date) {
                     data.push(element);
