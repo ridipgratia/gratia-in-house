@@ -229,6 +229,11 @@ module.exports.latestAttendance = async function (req, res) {
 
 module.exports.activityExporter = async function (req, res) {
     const { start_date, end_date } = req.body;
+    const res_data = {
+        status: 400,
+        message: ''
+    };
+    const date_wise_data = [];
     try {
         // const activity = await UserActivity.findAll({
 
@@ -256,45 +261,55 @@ module.exports.activityExporter = async function (req, res) {
         });
         const startDate = new Date(start_date);
         const endDate = new Date(end_date);
-        const date_wise_data = [];
         const datesBetween = eachDayOfInterval({ start: startDate, end: endDate })
             .map(date => format(date, 'yyyy-MM-dd'));
-
-        activity.forEach(person => {
-            var person_data = [];
-            datesBetween.forEach(every_date => {
-                var sorted_data = [];
-                person.activities.forEach(data => {
-                    if (every_date == data.date) {
-                        sorted_data.push(data);
+        if (activity.length > 0) {
+            activity.forEach(person => {
+                var person_data = [];
+                datesBetween.forEach(every_date => {
+                    var sorted_data = [];
+                    person.activities.forEach(data => {
+                        if (every_date == data.date) {
+                            sorted_data.push(data);
+                        }
+                    });
+                    if (sorted_data.length != 0) {
+                        person_data.push(sorted_data);
                     }
                 });
-                if (sorted_data.length != 0) {
-                    person_data.push(sorted_data);
-                }
+                var employee_data = {
+                    "first_name": person.first_name,
+                    "last_name": person.last_name,
+                    "designation": person.designation
+                };
+                var date_data = [
+                    person_data,
+                    employee_data
+                ];
+                date_wise_data.push(date_data);
             });
-            var employee_data = {
-                "first_name": person.first_name,
-                "last_name": person.last_name,
-                "designation": person.designation
-            };
-            var date_data = [
-                person_data,
-                employee_data
-            ];
-            date_wise_data.push(date_data);
-        });
-        return await res.json(date_wise_data);
+            res_data.status = 200;
+        } else {
+            res_data.message = "No data found !";
+        }
+        // return await res.json(date_wise_data);
         // return await res.json({ date_wise_data: date_wise_data, employee_data: employee_data });
-        res.json(activity);
+        // res.json(activity);
     } catch (error) {
         console.log(error);
-        res.status(500).json({ error: "An error occurred while retrieving attendance." });
+        // res.status(500).json({ error: "An error occurred while retrieving attendance." });
     }
+    return await res.status(200).json({ date_wise_data, res_data });
 
 };
 module.exports.UseractivityExporter = async function (req, res) {
-    const { start_date, end_date, user_id } = req.body;
+    const { start_date, end_date, user_id } = req.body
+    const res_data = {
+        status: 400,
+        message: ''
+    };
+    var employee_data = {};
+    const date_wise_data = [];
     try {
         // const activity = await UserActivity.findAll({
 
@@ -326,32 +341,47 @@ module.exports.UseractivityExporter = async function (req, res) {
         });
         const startDate = new Date(start_date);
         const endDate = new Date(end_date);
-        const date_wise_data = [];
         const datesBetween = eachDayOfInterval({ start: startDate, end: endDate })
             .map(date => format(date, 'yyyy-MM-dd'));
-        for (var i = 0; i < datesBetween.length; i++) {
-            var data = [];
-            activity[0].activities.forEach(element => {
-                if (datesBetween[i] == element.date) {
-                    data.push(element);
-                    // data.push(activity[0].activities[i]);
+        console.log(activity.length);
+        if (activity.length > 0) {
+            if (activity[0].activities.length > 0) {
+                for (var i = 0; i < datesBetween.length; i++) {
+                    var data = [];
+                    activity[0].activities.forEach(element => {
+                        if (datesBetween[i] == element.date) {
+                            data.push(element);
+                            // data.push(activity[0].activities[i]);
+                        }
+                    });
+                    console.log("Break");
+                    if (data.length != 0) {
+                        date_wise_data.push(data);
+                    }
                 }
-            });
-            console.log("Break");
-            if (data.length != 0) {
-                date_wise_data.push(data);
+                res_data.status = 200;
+            } else {
+                res_data.message = "No activity found !";
             }
+            employee_data = {
+                "first_name": activity[0].first_name,
+                "last_name": activity[0].last_name,
+                "designation": activity[0].designation
+            };
+        } else {
+            res_data.message = "No data found !";
         }
-        var employee_data = {
-            "first_name": activity[0].first_name,
-            "last_name": activity[0].last_name,
-            "designation": activity[0].designation
-        };
-        return await res.json({ date_wise_data: date_wise_data, employee_data: employee_data });
+        // return await res.json({ date_wise_data: date_wise_data, employee_data: employee_data });
     } catch (error) {
         console.log(error);
-        res.status(500).json({ error: "An error occurred while retrieving attendance." });
+        res_data.message = "Server error please try later !";
+        // res.status(200).json({ error: "An error occurred while retrieving attendance." });
     }
+    return await res.status(200).json({
+        date_wise_data: date_wise_data,
+        employee_data: employee_data,
+        res_data
+    });
 
 };
 
