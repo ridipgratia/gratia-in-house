@@ -8,4 +8,4 @@
 
 
 // Test Gratia In House 
-export const API_URL = 'http://35.78.178.11:9000/api'
+export const API_URL = 'http://api.attendancetested.gratiatechnology.com/api'
